@@ -2,7 +2,7 @@ import { Plugin } from 'obsidian';
 
 var tag = /{\s+(.*?)\s+}/;
 
-export default class MyPlugin extends Plugin {
+export default class MustacheRemover extends Plugin {
 	async onload() {
 		this.registerMarkdownPostProcessor((element, context) => {
 			const anchors = element.querySelectorAll("a");
