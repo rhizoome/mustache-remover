@@ -12,6 +12,7 @@ export default class MustacheRemover extends Plugin {
   remover = async (element, context) => {
     await this.header_remover(element, context);
     await this.mustache_remover(element, context);
+    await this.curl_adder(element, context);
   }
 
   header_remover = async (element, context) => {
@@ -44,6 +45,14 @@ export default class MustacheRemover extends Plugin {
             paragraph.remove();
           }
         }
+      }
+    }
+  }
+  curl_adder = async (element, context) => {
+    const wbrs = element.querySelectorAll("wbr");
+    for (const wbr of wbrs) {
+      for (const cls of wbr.classList) {
+        element.classList.add(cls);
       }
     }
   }
