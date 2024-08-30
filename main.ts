@@ -47,6 +47,9 @@ export default class MustacheRemover extends Plugin {
         }
       }
     }
+    if (element.innerHTML == "") {
+      element.classList.add("sp-removed-element");
+    }
   }
   curl_adder = async (element, context) => {
     const wbrs = element.querySelectorAll("wbr");
