@@ -1,0 +1,10 @@
+{
+	"id": "mustache-remover",
+	"name": "Mustache Remover",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Remove mustaches from my custom link-scheme",
+	"author": "Streampunk",
+	"authorUrl": "https://github.com/stream-punk/mustache-remover",
+	"isDesktopOnly": false
+}
