@@ -71,4 +71,29 @@ export default class MustacheRemover extends Plugin {
       }
     }
   }
+
+  get_tag = async () => {
+    const index = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+    const seed = String(Math.random());
+
+    const encoder = new TextEncoder();
+    const data = encoder.encode(seed);
+
+    const res = new Uint8Array(await crypto.subtle.digest('SHA-256', data));
+    let serial = 0.0;
+    serial += res[0];
+    serial += res[1] * 2**8;
+    serial += res[2] * 2**16;
+    serial += res[3] * 2**24;
+    serial += res[4] * 2**32;
+    serial += res[5] * 2**40;
+
+    let result = [];
+    while (serial > 0) {
+      const mod = serial % index.length;
+      serial = Math.floor(serial / index.length);
+      result.push(index[mod]);
+    }
+    return result.reverse().slice(2, 6).join("");
+  }
 }
