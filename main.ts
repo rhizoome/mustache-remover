@@ -1,7 +1,8 @@
 import { Plugin } from 'obsidian';
 
 var title = /{\s+(.*?)\s+}/;
-var tag = /cls\.([\w-]+)/;
+const tag = '🏷️';
+const clock = '🕛';
 
 export default class MustacheRemover extends Plugin {
   async onload() {
@@ -9,20 +10,39 @@ export default class MustacheRemover extends Plugin {
   }
 
   remover = async (element, context) => {
-    await Promise.all([
-      this.header_remover(element, context),
-      this.mustache_remover(element, context)
-    ]);
+    await this.header_remover(element, context);
+    await this.mustache_remover(element, context);
   }
 
   header_remover = async (element, context) => {
-    if (element.classList.contains("dynbedded")) {
-      const paragraphs = element.querySelectorAll("p");
-      for (const paragraph of paragraphs) {
-        const br = paragraph.querySelectorAll("br");
-        const wbr = paragraph.querySelectorAll("wbr");
-        if (br.length && wbr.length) {
-          paragraph.remove();
+    const is_dynbedded = element.classList.contains("dynbedded");
+    var is_embedded = false;
+    if (!is_dynbedded) {
+      var parent = context.containerEl;
+      while (parent) {
+        const class_list = parent.classList;
+        if (!is_embedded && class_list.contains("markdown-embed")) {
+          is_embedded = true;
+        }
+        if (is_embedded && class_list.contains("popover")) {
+          if (class_list.contains("hover-popover")) {
+            is_embedded = false;
+          }
+        }
+        parent = parent.parentElement;
+      }
+    }
+    if (is_dynbedded || is_embedded) {
+      const paragraphs = element.querySelectorAll("div p");
+      if (paragraphs.length) {
+        const paragraph = paragraphs[0];
+        const text = paragraph.innerText;
+        if (text.contains(tag)) {
+          const br = paragraph.querySelectorAll("br");
+          const wbr = paragraph.querySelectorAll("wbr");
+          if (br.length && wbr.length && text.contains(clock)) {
+            paragraph.remove();
+          }
         }
       }
     }
