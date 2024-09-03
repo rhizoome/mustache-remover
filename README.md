@@ -4,24 +4,29 @@ Displays Obsidian wikilinks formatted like '{ x } XYZ' as 'x'. Used to tag pages
 with a short base62-tag (a-zA-Z0-9) to avoid duplicated titles, which in turn allows always
 having short wiki links.
 
-## Repository Status: Sharing / Inactive
+## Repository Status: Personal
 
-This repository hosts code that I’ve chosen to share publicly for educational,
-demonstration, or archival purposes. Please note the following:
+This repository hosts a project that is actively maintained but primarily
+intended for my personal use. It is public for transparency, sharing ideas, and
+as a resource for others who might find the methodologies or implementations
+useful. Please consider the following:
 
-- **No Active Maintenance**: This project is not actively maintained or updated.
-  It serves primarily as a snapshot of a certain stage of development for those
-  who might find parts of the code useful or interesting. I try to accept pull-
-  request, but do not expect anything. If interest in the project increases, I
-  might change the repository status.
-- **No Support Provided**: As this is an inactive project, I’m unable to provide
-  support, answer issues, or accommodate pull requests.
-- **Use at Your Own Risk**: While you’re welcome to explore, fork, or use the
-  code in your own projects, please do so with the understanding that this
-  repository is provided as-is, without any guarantees on its functionality or
-  security.
+- **Status change**: Should there be significant interest in this project, I am
+  open to changing its status to accommodate broader collaboration and
+  development.
+- **Personal Project**: This is a personal project, and while it is actively
+  maintained, it is tailored to my specific needs and use cases.
+- **Limited Support**: Given the personal nature of this project, support and
+  responses to issues or pull requests might be limited. I encourage open
+  collaboration but may prioritize changes that align with my personal use.
+- **Viewing and Forking Encouraged**: You are welcome to view, fork, or use the
+  code in your own projects. However, this project is provided as-is, with no
+  guarantees of regular updates or adaptations for broader use.
+- **Contribution Guidelines**: While contributions are appreciated, they should
+  be relevant and beneficial to the project’s ongoing development. Please review
+  any provided contribution guidelines before making pull requests.
 
-Feel free to explore the code and utilize it under the terms of the license
+Feel free to explore the code, and utilize it under the terms of the license
 attached to this repository!
 
 I use this code daily, but I never change anything unless it breaks.
